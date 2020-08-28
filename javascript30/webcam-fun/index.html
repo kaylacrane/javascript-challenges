@@ -7,8 +7,36 @@
   </head>
   <body>
     <div class="photobooth">
+      <button onClick="takePhoto()">Take Photo</button>
       <div class="controls">
-        <button onClick="takePhoto()">Take Photo</button>
+        <div class="filters">
+          <label for="noFilter"
+            ><input type="radio" id="noFilter" name="filters" checked />None
+          </label>
+          <label for="redFilter"
+            ><input type="radio" id="redFilter" name="filters" />Red
+          </label>
+          <label for="splitFilter"
+            ><input type="radio" id="splitFilter" name="filters" />RGB Split
+          </label>
+          <label for="greyFilter"
+            ><input type="radio" id="greyFilter" name="filters" />B&W
+          </label>
+          <label for="greenscreenFilter"
+            ><input type="radio" id="greenscreenFilter" name="filters" />Green
+            Screen
+          </label>
+          <label for="blurFilter"
+            ><input type="radio" id="blurFilter" name="filters" />Blurry
+          </label>
+          <label for="invertFilter"
+            ><input type="radio" id="invertFilter" name="filters" />Invert
+            Colors
+          </label>
+          <label for="sepiaFilter"
+            ><input type="radio" id="sepiaFilter" name="filters" />Sepia
+          </label>
+        </div>
         <div class="rgb">
           <label for="rmin">Red Min:</label>
           <input type="range" min="0" max="255" name="rmin" />
