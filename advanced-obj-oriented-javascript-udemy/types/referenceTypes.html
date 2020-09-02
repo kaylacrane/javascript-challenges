@@ -27,6 +27,13 @@
       document.write(
         "Salary is a property of myObject and has a value of " + myObject.Salary
       );
+      /* inbuilt reference types with new */
+      const products = new Array();
+      const date = new Date();
+      const error = new Error("Something went wrong");
+      const myFunction = new Function(`document.write("<br> Hello")`);
+      myFunction();
+      const regEx = new RegExp("\\d+");
     </script>
   </body>
 </html>

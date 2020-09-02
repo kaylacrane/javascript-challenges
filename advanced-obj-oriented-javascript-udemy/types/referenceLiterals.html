@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const student = {
+        name: "Bob" /* put key in quotes when using special characters*/,
+        score: 80,
+      };
+      document.write("Bob's score is " + student.score);
+
+      /*above is the same as below*/
+      const s1 = new Object();
+      s1.name = "Bob";
+      s1.score = 80;
+      document.write("<br> Bob's score is " + s1.score + "<br>");
+
+      /* ASSIGNMENT - create object called Patient using obj literal sintax. Give it two properties (id and name) */
+      const patient = {
+        id: 12346,
+        name: "Janet",
+      };
+      document.write(patient.name + " is a patient with ID " + patient.id);
+      document.write("<br>");
+
+      /* ARRAYS */
+      const studentNames = ["John", "Bob", "Harry"];
+      /*below and above are the same */
+      const students = new Array("John", "Bob", "Harry");
+
+      document.write(studentNames[0] + "<br>");
+      document.write(students[0] + "<br>");
+
+      /* FUNCTIONS */
+      /*Not a good idea to use reference types with new for functions since lots of debuggers don't support it*/
+      function hello(name) {
+        return "Hello " + name;
+      }
+      // const myFunction = new Function("nameOfFunction", "body of function");
+
+      /* REGULAR EXPRESSIONS */
+      const regEx = /\d+/; /* you have to escape certain characters when you use the reference type new RegExp(). This is not necessary with literals*/
+
+      /* Type of  vs instance of*/
+      document.write(typeof studentNames + "<br>");
+      document.write((studentNames instanceof Array) + "<br>");
+
+      document.write(typeof hello + "<br>");
+      document.write((hello instanceof Function) + "<br>");
+
+      document.write(typeof patient + "<br>");
+      document.write((patient instanceof Object) + "<br>");
+      /* if you use instanceof Object it will always return true because all types are derived from objects in JS*/
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const quote = "Arise awake and stop not till the goal is reached";
+      const s = quote.substring(
+        4,
+        8
+      ); /*JS engine creates this wrapper internally and then immediately destroys it */
+
+      const temp = new String(
+        "Arise awake and stop not till the goal is reached"
+      );
+      const s1 = quote.substring(4, 8);
+
+      /* Internally all primitive are represented using the appropriate literal types. Using them ourselves can lead to problems*/
+      s.category = "Inspiring";
+
+      document.write(
+        s.category
+      ); /* returns undefined because above s.category is destroyed immediately after executing the line*/
+    </script>
+  </body>
+</html>
