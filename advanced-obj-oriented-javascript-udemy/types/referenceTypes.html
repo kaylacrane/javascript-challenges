@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* variables for objects only point to location in memory. they don't store a value. a second instance of the same object will point to the same memory location*/
+      let obj1 = new Object();
+      let obj2 = obj1;
+
+      /*dynamically add properties to objects using dot operator*/
+      obj1.myProperty = "All the power is within you";
+
+      document.write(
+        obj2.myProperty + "<br>" + "<br>"
+      ); /*will give same value as above in obj1 because both point to same memory location*/
+      obj1 = null;
+      obj2 = null; /*garbage collection and de-referencing: this is how we make sure the memory location can be freed at the end of the application (when no more variables exist pointing referencing its location*/
+      /* ASSIGNMENT */
+      /* Create object, add a property called Salary to it, give Salary a value of 100, and display property */
+      const myObject = new Object();
+      myObject.Salary = 100;
+
+      document.write(
+        "Salary is a property of myObject and has a value of " + myObject.Salary
+      );
+    </script>
+  </body>
+</html>

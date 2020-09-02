@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const customerName = "John";
+      const accountBalance = 2000;
+      const isValid = true;
+      const object = null; /*typeof gives object*/
+      const x = 123;
+      let y = x; /*if you don't assigned a value it will be undefined*/
+      y = 456; /*primitive types store value directly in them*/
+      const s = "123";
+
+      const s1 = "you are the creator of your destiny";
+      document.write(s1.toUpperCase() + "<br>");
+      document.write(s1.substring(4, 11) + "<br>");
+      document.write(s1.charAt(8) + "<br>" + "<br>");
+
+      document.write(
+        typeof isValid.toString() + " " + isValid.toString() + "<br>"
+      );
+
+      document.write(typeof customerName + "<br>");
+      document.write(typeof accountBalance + "<br>");
+      document.write(typeof isValid + "<br>");
+      document.write(
+        (object === null) + "<br>"
+      ); /*gives true because it is null*/
+      document.write(typeof x + "<br>");
+      document.write(typeof y + "<br>");
+
+      document.write(
+        x == s
+      ); /*gives true because it converts the type to compare value*/
+      document.write(x == s); /*gives false because it compares value and type*/
+    </script>
+  </body>
+</html>
