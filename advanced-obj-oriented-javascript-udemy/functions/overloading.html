@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function add(num1, num2, num3) {
+        return num1 + num2 + num3;
+      }
+
+      function add(num1, num2) {
+        console.log(arguments.length);
+        return num1 + num2;
+      }
+
+      console.log(
+        add(2, 3, 4)
+      ); /*returns sum of only first two params so js engine always uses the last occurrence of function*/
+      function add(num1, num2) {
+        console.log(arguments.length);
+        return num1 + num2;
+      }
+      /* use arguments to make function allow for different numbers of args*/
+      function add2() {
+        console.log(arguments.length + " in add2");
+        if (arguments.length === 3) {
+          return arguments[0] + arguments[1] + arguments[2];
+        } else {
+          return arguments[0] + arguments[1];
+        }
+      }
+      console.log(add2(2, 3, 4));
+    </script>
+  </body>
+</html>

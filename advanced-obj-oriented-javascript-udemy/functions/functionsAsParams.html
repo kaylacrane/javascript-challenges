@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*passing function as parameter*/
+      const studentIds = [30, 35, 15, 88, 100];
+      studentIds.sort(); /*sorts numbers in arrays as strings by default*/
+      console.log(studentIds);
+
+      /*to sort as numbers (passes anonymous function as param)*/
+      studentIds.sort(function (num1, num2) {
+        return num1 - num2;
+      });
+      console.log(studentIds);
+
+      /*functions can accept any number of params*/
+      function evenOrOdd(num) {
+        console.log(arguments); /*to see all arguments passed to function*/
+        console.log(
+          evenOrOdd.length
+        ); /*to see number of named arguments, here it's num only*/
+        if (num % 2 == 0) {
+          return "even";
+        } else {
+          return "odd";
+        }
+      }
+      /*the function will accept the other params but won't use them unless we define how in the function*/
+      console.log(evenOrOdd(10, 5, 28, 3));
+    </script>
+  </body>
+</html>

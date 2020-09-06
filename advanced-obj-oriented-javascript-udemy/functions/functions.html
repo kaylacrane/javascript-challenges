@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* hoisting is invoking a function before it is declared. works in a global scope as in this case or within a function's scope*/
+      console.log(evenOrOdd(10));
+
+      /*declaration method of function defining*/
+      function evenOrOdd(num) {
+        if (num % 2 == 0) {
+          return "even";
+        } else {
+          return "odd";
+        }
+      }
+      console.log(evenOrOdd(10));
+
+      /*hoisting DOES NOT occur with function expressions! js engine doesn't know the name of the function*/
+      // console.log(evenOrOdd2(5));
+
+      /*expression method of function defining*/
+      const evenOrOdd2 = function (num) {
+        if (num % 2 == 0) {
+          return "even";
+        } else {
+          return "odd";
+        }
+      };
+      console.log(evenOrOdd2(5));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop</title>
+  </head>
+  <body>
+    <!-- from tutorial at https://youtu.be/tZ45HZAkbLc -->
+    <div class="app">
+      <header>
+        <h1>Drag and Drop List Items</h1>
+      </header>
+      <div class="lists">
+        <div class="list">
+          <div class="list-item" draggable="true">List item 1</div>
+          <div class="list-item" draggable="true">List item 2</div>
+          <div class="list-item" draggable="true">List item 3</div>
+        </div>
+        <div class="list"></div>
+        <div class="list"></div>
+      </div>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: cadetblue;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      .app {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        flex-flow: column;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+      }
+      .lists {
+        display: flex;
+        flex: 1;
+        width: 100%;
+        overflow-x: scroll;
+        padding-top: 20px;
+      }
+      .lists .list {
+        display: flex;
+        flex-flow: column;
+        flex: 1;
+        width: 100%;
+        min-width: 250px;
+        max-width: 350px;
+        height: 90%;
+        min-height: 150px;
+        background-color: rgba(212, 212, 212, 0.8);
+        margin: 0 15px;
+        padding: 8px;
+        transition: all 0.2s linear;
+      }
+      .lists .list .list-item {
+        background-color: lightpink;
+        border-radius: 8px;
+        padding: 15px 20px;
+        text-align: center;
+        margin: 4px;
+      }
+      .highlight {
+        box-shadow: 0px 0px 19px 13px lightpink;
+      }
+    </style>
+    <script>
+      const list_items = document.querySelectorAll(".list-item");
+      const lists = document.querySelectorAll(".list");
+
+      let draggedItem = null;
+
+      for (let i = 0; i < list_items.length; i++) {
+        const item = list_items[i];
+        item.addEventListener(
+          "dragstart",
+          function () {
+            draggedItem = this;
+            setTimeout(function () {
+              /*to be able to hide item when dragging*/
+              item.style.display = "none";
+            }, 0);
+          },
+          0
+        );
+        item.addEventListener("dragend", function () {
+          setTimeout(function () {
+            /*to show item when finished dragging*/
+            draggedItem.style.display = "block";
+            draggedItem = null;
+          }, 0);
+        });
+
+        for (let j = 0; j < lists.length; j++) {
+          const list = lists[j];
+          list.addEventListener("dragover", function (event) {
+            event.preventDefault(); /*enables drop */
+          });
+          list.addEventListener("dragenter", function (event) {
+            event.preventDefault(); /* to prevent cancelling drop*/
+            this.classList.add("highlight");
+          });
+          list.addEventListener("dragleave", function (event) {
+            this.classList.remove("highlight");
+          });
+          list.addEventListener("drop", function (event) {
+            this.append(draggedItem);
+            this.classList.remove("highlight");
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
