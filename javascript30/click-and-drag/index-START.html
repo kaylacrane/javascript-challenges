@@ -62,8 +62,8 @@
         if (!isDown) return; //stop the function from running
         event.preventDefault();
         const x = event.pageX - slider.offsetLeft; //recalculates where we move mouse. Uses same code as above
-        const walk = x - startX;
-        slider.scrollLeft = (scrollLeft - walk) * 2;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
       });
     </script>
   </body>
