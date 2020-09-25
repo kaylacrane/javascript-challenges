@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardArray = [
     { name: "frog", img: "images/frog.jpg" },
     { name: "frog", img: "images/frog.jpg" },
-    { name: "bear", img: "images/bear.jpg" },
-    { name: "bear", img: "images/bear.jpg" },
     { name: "pig", img: "images/pig.jpg" },
     { name: "pig", img: "images/pig.jpg" },
     { name: "tiger", img: "images/tiger.jpg" },
@@ -17,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "dog", img: "images/dog.jpg" },
     { name: "monkey", img: "images/monkey.jpg" },
     { name: "monkey", img: "images/monkey.jpg" },
-    { name: "panda", img: "images/panda.jpg" },
-    { name: "panda", img: "images/panda.jpg" },
   ];
 
   cardArray.sort(() => 0.5 - Math.random());
@@ -94,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardArray.length / 2) {
       grid.innerHTML = "";
-      alert.innerHTML = `<span class="won"> You won!</span>`;
+      alert.innerHTML = `You won!`;
     }
   }
 

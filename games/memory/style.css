@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .page-title,
 .score {
   text-align: center;
@@ -34,9 +35,33 @@
   padding: 0.25rem 0.75rem;
   border-radius: 0.75rem;
 }
+@media all and (min-width: 760px) {
+  .page-title {
+    font-size: 5rem;
+  }
+  .score {
+    font-size: 2.5rem;
+  }
+  .page-title,
+  .score {
+    margin-bottom: 2rem;
+  }
+}
+@media all and (min-width: 1000px) {
+  .page-title {
+    font-size: 7rem;
+  }
+  .score {
+    font-size: 3.5rem;
+  }
+  .page-title,
+  .score {
+    margin-bottom: 2rem;
+  }
+}
 .grid {
   display: flex;
-  width: 80vw;
+  width: 90vw;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -49,6 +74,20 @@
   border-radius: 15px;
   margin: 5px;
 }
+@media all and (min-width: 760px) {
+  .card {
+    height: 130px;
+    width: 130px;
+    margin: 10px;
+  }
+}
+@media all and (min-width: 1000px) {
+  .card {
+    height: 180px;
+    width: 180px;
+    margin: 15px;
+  }
+}
 .matched-card {
   opacity: 0.3;
   box-shadow: none;
@@ -57,20 +96,16 @@
 
 /* alerts */
 .alert {
-  font-size: 5rem;
+  font-size: 4rem;
   position: absolute;
   top: 50vh;
-  min-height: 7rem;
-  min-width: 7rem;
-  line-height: 7rem;
-  border-radius: 50%;
+  padding: 0.5rem 2rem;
+  min-height: 6rem;
+  min-width: 6rem;
+  line-height: 6rem;
+  border-radius: 2rem;
   text-align: center;
   pointer-events: none;
-}
-.alert .won {
-  font-size: 2rem;
-  display: inline-block;
-  width: fit-content;
 }
 
 .alert-match {
@@ -91,7 +126,7 @@
   padding: 0.25rem 0.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 0 8px 5px gold;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
   transition: 0.5s ease all;
 }
 .new-game:active {
@@ -99,4 +134,43 @@
   background-color: plum;
   box-shadow: inset 0 0 5px 2px rgb(97, 49, 97);
   transition: 0.5s ease all;
+}
+@media all and (min-width: 760px) {
+  .alert {
+    font-size: 6rem;
+    top: 50vh;
+    min-height: 8rem;
+    min-width: 8rem;
+    line-height: 8rem;
+  }
+  .alert .won {
+    font-size: 8rem;
+    display: inline-block;
+    width: fit-content;
+  }
+  .new-game {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1.5rem;
+  }
+}
+@media all and (min-width: 1000px) {
+  .alert {
+    font-size: 8rem;
+    top: 50vh;
+    min-height: 10rem;
+    min-width: 10rem;
+    line-height: 10rem;
+  }
+  .alert .won {
+    font-size: 8rem;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .new-game {
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+  }
 }
