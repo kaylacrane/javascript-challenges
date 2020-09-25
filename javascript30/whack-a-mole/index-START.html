@@ -62,9 +62,11 @@
       function peep() {
         const time = randomTime(200, 1000);
         const hole = randomHole(holes);
-        hole.classList.add("up");
+        const moleUp = hole.children[0];
+        // console.log(moleUp);
+        moleUp.classList.add("up");
         setTimeout(() => {
-          hole.classList.remove("up");
+          moleUp.classList.remove("up");
           if (!timeUp) {
             peep();
           }
@@ -79,11 +81,12 @@
         setTimeout(() => {
           timeUp = true;
           alert("Game over!");
-        }, 10000);
+        }, 20000);
       }
 
       function bonk(event) {
         if (!event.isTrusted) return; //cheater!
+        console.log(event.target.parentNode);
         score++;
         this.classList.remove("up");
         scoreBoard.textContent = score;
