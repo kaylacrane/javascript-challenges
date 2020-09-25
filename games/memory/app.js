@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   newGame.addEventListener("click", createNewGame);
   function createNewGame() {
+    cardsWon = [];
     grid.innerHTML = "";
     createBoard();
   }
@@ -92,7 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsChosenId = [];
     resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardArray.length / 2) {
-      alert.innerHTML = `<i class="fas fa-smile"></i><span class="won"> You won!</span>`;
+      grid.innerHTML = "";
+      alert.innerHTML = `<span class="won"> You won!</span>`;
     }
   }
 
