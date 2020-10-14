@@ -7,6 +7,7 @@
   </head>
   <body>
     <script>
+      /*add a method to an object*/
       const student = {
         id: 1,
         name: "Bob",
@@ -15,8 +16,26 @@
           console.log(student.name + " name");
         },
       };
-
       student.display();
+
+      /*create a function that can be used by multiple objects (use this)*/
+ function displayDetails () {
+          console.log(this.id + " id");
+          console.log(this.name + " name");}
+
+ const student1 = {
+   id: 2,
+   name:"Jamie",
+   /*don't use () here*/
+   display: displayDetails,  
+ };
+ student1.display();
+
+/*function also available in global scope*/
+this.name="Mary";
+this.id=3;
+displayDetails();
+
     </script>
   </body>
 </html>

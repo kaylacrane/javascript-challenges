@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using call(), apply(), and bind()</title>
+</head>
+<body>
+   <script>
+        /*add a method to an object*/
+    const student = {
+      id: 1,
+      name: "Bob",
+         };
+
+
+    /*create a function that can be used by multiple objects (use this)*/
+function displayDetails () {
+        console.log(this.id + " id");
+        console.log(this.name + " name");}
+
+const student1 = {
+ id: 2,
+ name:"Jamie",
+};
+
+this.name="Mary";
+this.id=3;
+
+/*CALL*/
+/*Function.prototype.call() -- method that calls a function with a given this value and arguments provided individually.*/
+displayDetails.call(student1);
+displayDetails.call(student);
+/*global scope*/
+displayDetails.call();
+
+/*APPLY - same as call but with an array of arguments*/
+function displayScores (testscore,testscore2) {
+        console.log("name " + this.name);
+        console.log("testscore " + testscore);
+        console.log("testscore 2 " + testscore2);
+        }
+
+    displayScores.call(student1, 10);
+    displayScores.call(student, 20);
+    displayScores.call(this, 30);
+
+    console.log("APPLY")
+    displayScores.apply(student1, [10,15]);
+    displayScores.apply(student, [20,18]);
+    displayScores.apply(this, [30,25]);
+
+    /*BIND - creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.*/
+    function displayStuff (stuff) {
+        console.log("name " + this.name);
+        console.log("stuff " + stuff);
+        }
+
+     let displayStudent =   displayStuff.bind(student,10);
+     /*can bind data above to always use the same or put in () below to change*/
+     displayStudent();
+
+     let displayStudent1 =   displayStuff.bind(student1);
+     displayStudent1(200);
+
+     /*we can attach the bound function as a method to another but it will still have the values for the bound function*/
+     displayStudent1.displayStuff = displayStudent;
+     console.log("Attaching bound function (gives Bob's details)")
+     displayStudent1.displayStuff();
+
+     /*SUMMARY*/
+     /*function declaration will invoke hoisting but using function expression does not
+     functions are just objects
+     overload a function by using arguments.length
+     using this (represents calling object for function) and changing its value with bind, call, apply
+
+     */
+
+   </script>
+</body>
+</html>
