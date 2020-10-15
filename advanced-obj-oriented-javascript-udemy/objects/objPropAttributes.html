@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //to set attributes on a property
+        const creditCard = {
+            name: "John"
+        };
+        console.log("name" in creditCard); //true
+        console.log(creditCard.propertyIsEnumerable("name")); //true
+
+        //here we change the enumerable attribute to false (this came with ES5)
+        Object.defineProperty(creditCard, "name", {
+            enumerable: false
+        });
+
+        console.log("name" in creditCard); //true because property is still available
+        console.log(creditCard.propertyIsEnumerable("name")); //false
+
+        //CONFIGURABLE ATTRIBUTES - if the attribute be changed or not
+
+        Object.defineProperty(creditCard, "name", {
+           configurable: false //once you define it as nonconfigurable you CANNOT reset it to be configurable later on
+        });
+
+        delete creditCard.name; //with strict mode this might throw an error
+        console.log("name" in creditCard, creditCard.name); //name still exists with original value
+        
+
+    </script>
+</body>
+
+</html>

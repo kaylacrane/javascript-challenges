@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects and their properties</title>
+</head>
+<body>
+    <script>
+        const course1 = {
+            name:"JavaScript fundamentals",
+            level:"beginner",
+            location:"online",
+            teacher:"Bharath"
+        };
+
+        const course2 = new Object();
+        course2.name ="ReactJS"
+
+        //in both instances, the javascript engine invokes the put method to create the property
+        course1.name ="End to end javascript"; /*here it invokes set to change value*/Object
+
+        //check if property/method exists in object
+
+        console.log("name" in course1); //true
+        console.log("description" in course1); //false
+
+        console.log("toString" in course1);  /*true - every object has this method inherited automatically*/
+        console.log(course1.hasOwnProperty("toString"));  /*false - checks whether the object has the specified property as its own property (as opposed to inheriting it)*/
+    
+        /*delete a property*/
+        delete course1.level; /*returns false if able to delete*/
+        console.log(course1);
+
+        //loop through properties/keys and values
+        for (let eachProperty in course1){
+            console.log(eachProperty);//property
+            console.log(course1[eachProperty]);//property value
+        }
+    
+    const allProperties = Object.keys(course1);
+    console.log(allProperties); //loop through to get values
+
+    //check for enumerability
+    console.log(course1.propertyIsEnumerable("name"));//true
+    console.log(allProperties.propertyIsEnumerable("length"));//false because it's an internal object property that was inherited, not created
+    </script>
+</body>
+</html>
