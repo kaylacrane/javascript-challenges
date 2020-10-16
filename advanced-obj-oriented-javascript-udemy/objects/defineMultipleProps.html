@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const creditCard = {};
+        Object.defineProperties(creditCard, {
+            _name: {
+                value: "john",
+                enumerable: true,
+                configurable: true,
+                writable: true
+            },
+            name: {
+                get: function () {
+                    return this._name;
+                },
+                set: function (value) {
+                    this._name = value;
+                },
+                enumerable:true,
+                configurable:true
+            }
+        });
+
+        console.log(creditCard);
+
+        //to check property attributes
+        const myObject = {
+            name:"kayla"
+        }
+const descriptor = Object.getOwnPropertyDescriptor(myObject, "name");
+console.log(descriptor.enumerable);//true
+console.log(descriptor.configurable);//true
+console.log(descriptor.writable);//true
+console.log(descriptor.value);//kayla
+
+    </script>
+</body>
+
+</html>

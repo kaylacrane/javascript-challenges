@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Non extensible objects
+        const product = {
+            name:"Phone"
+        };
+        console.log(Object.isExtensible(product));//true because it is the default value
+        Object.preventExtensions(product);
+        console.log(Object.isExtensible(product));//now it returns false and no more properties/methods can be added to the obj
+        product.price=700; //only see error in strict mode
+        console.log(product.price); //undefined
+        console.log("price" in product); //false
+
+        //sealing objects
+        const anotherProduct = {
+            name:"Phone"
+        };
+        console.log(Object.isExtensible(anotherProduct));//true
+        console.log(Object.isSealed(anotherProduct));//false
+        Object.seal(anotherProduct);
+        console.log(Object.isExtensible(anotherProduct));//false now
+        console.log(Object.isSealed(anotherProduct));//true now
+
+        anotherProduct.price = 10;
+        console.log(anotherProduct.price); //undefined
+        console.log("price" in anotherProduct);//false
+        delete anotherProduct.name;
+        console.log("name" in anotherProduct); //true still
+
+        const descriptor = Object.getOwnPropertyDescriptor(anotherProduct, "name");
+        console.log(descriptor.configurable);//false
+
+        //freezing objects
+        const myObject = {
+            name:"Phone"
+        };
+        console.log(Object.isFrozen(myObject));//false
+        Object.freeze(myObject);
+        console.log(Object.isFrozen(myObject));//true
+        myObject.name="potato";
+        console.log(myObject.name); //still Phone
+
+        const descriptor2 = Object.getOwnPropertyDescriptor(myObject, "name");
+        console.log(descriptor2.writable);//false
+    </script>
+</body>
+</html>

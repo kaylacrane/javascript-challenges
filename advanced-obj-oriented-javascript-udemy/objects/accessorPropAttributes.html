@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const creditCard = {
+            _name: "John",//_ is convention used to set property as private
+        }
+
+        Object.defineProperty(creditCard, "name", {
+            //same as get name(){} but different syntax
+            //this has the advantage of letting you assign set/get without changing the original object
+            get: function () {
+                return this._name;
+            },
+            set: function (value) {
+                this._name = value;
+            },
+            enumerable:true,
+            configurable:true
+
+        })
+
+        const anotherObject = {
+            _name: "John",//_ is convention used to set property as private
+        }
+
+        Object.defineProperty(anotherObject, "name", {
+             get: function () {
+                return this._name;
+            },
+            //by removing the set, enumerable, and configurable we make this object read only
+        })
+
+        console.log("name" in anotherObject);//true
+        console.log(anotherObject.propertyIsEnumerable("name"));//false
+        delete anotherObject.name; //accessor method
+        console.log("name" in anotherObject);//still true
+        anotherObject.name="bob";
+        console.log(anotherObject.name);//still John
+    </script>
+
+</body>
+
+</html>

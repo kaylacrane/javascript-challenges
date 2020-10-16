@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const creditCard={
+    
+        };
+        /*all the prop values after will be false by default unless you specify them!*/
+        Object.defineProperty(creditCard, "name", {
+            value: "john",
+            // enumerable:true,
+            // configurable:true,
+            // writable:true
+        });
+
+        console.log("name" in creditCard); //true
+        console.log(creditCard.propertyIsEnumerable("name"));//false
+        delete creditCard.name; //fails silently!
+        console.log("name" in creditCard); //true
+        creditCard.name="Bob";//false
+        console.log(creditCard.name);//john
+    </script>
+</body>
+</html>
