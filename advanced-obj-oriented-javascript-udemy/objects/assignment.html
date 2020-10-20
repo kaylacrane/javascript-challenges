@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const license = {};
+      Object.defineProperties(license, {
+        name: {
+          value: "Gloria",
+          enumerable: false,
+          configurable: true,
+          writable: true,
+        },
+        number: {
+          value: 22,
+          enumerable: true,
+          configurable: false,
+          writable: false,
+        },
+      });
+
+      //   const descriptorName = Object.getOwnPropertyDescriptor(
+      //     license,
+      //     "name",
+      //     "number"
+      //   );
+      //   const descriptorNumber = Object.getOwnPropertyDescriptor(
+      //     license,
+      //     "number"
+      //   );
+      //   console.log("license: ", license);
+      //   console.log("descriptorName: ", descriptorName);
+      //   console.log(
+      //     "license.propertyIsEnumerable: ",
+      //     license.propertyIsEnumerable("name")
+      //   );
+      //   console.log("descriptorNumber: ", descriptorNumber);
+      //   license.number = 50;
+      //   console.log("license.number: ", license.number);
+
+      console.log("Object.isSealed before: ", Object.isSealed(license));
+      Object.seal(license);
+      console.log("Object.isSealed after: ", Object.isSealed(license));
+
+      delete license.name;
+      console.log("license.name exists? ", "name" in license);
+    </script>
+  </body>
+</html>

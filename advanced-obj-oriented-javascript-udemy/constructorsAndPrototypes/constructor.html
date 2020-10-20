@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Flight(airlines, flightNumber) {
+        //first letter is capital for constructor
+        this.airlines = airlines;
+        this.flightNumber = flightNumber;
+
+        this.display = function () {
+          console.log(this.airlines);
+          console.log(this.flightNumber);
+        };
+        //can explicitly return an object here but not a primitive type
+      }
+      //can use defineProperties method just like with objects
+
+      const flight1 = new Flight("American Airlines", "AA123");
+      const flight2 = new Flight("Southwest", "SW456");
+
+      flight1.display();
+      flight2.display();
+
+      //instanceof is most recommended and used way of verifying:
+      console.log(flight1 instanceof Flight); //true
+      console.log(flight2 instanceof Flight); //true
+
+      //but you can also use constructor method:
+      console.log(flight1.constructor === Flight); //true
+      console.log(flight2.constructor === Flight); //true
+    </script>
+  </body>
+</html>
